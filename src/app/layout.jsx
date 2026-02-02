@@ -1,5 +1,6 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/navbar/Navbar";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,12 @@ export default function RootLayout({ children }) {
       <body
         className={`antialiased`}
       >
-        {children}
+        <header>
+          <Navbar></Navbar>
+        </header>
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   );

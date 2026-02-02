@@ -24,3 +24,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.custom-container {
+  @apply w-11/12 max-w-400 mx-auto
+}
