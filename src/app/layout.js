@@ -12,8 +12,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Recipe Hub",
-  description: "Discover wonderful recipes",
+  title: {
+    default: "Recipe Hub",
+    template: "%s | Recipe Hub"
+  }
 };
 
 export default function RootLayout({ children }) {
