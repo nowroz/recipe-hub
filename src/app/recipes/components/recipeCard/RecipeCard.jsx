@@ -1,8 +1,10 @@
 import Image from "next/image"
 import AddToCartButton from "./components/addToCartButton/AddToCartButton"
+import Link from "next/link"
 
 const RecipeCard = ({ recipe }) => {
   const {
+    id,
     title,
     foodImg,
     price,
@@ -20,7 +22,7 @@ const RecipeCard = ({ recipe }) => {
 
           <div className="flex items-center justify-between text-black">
             <AddToCartButton recipe={recipe}></AddToCartButton>
-            <button className="cursor-pointer hover:underline">View Details</button>
+            <Link href={`/recipes/${id}`} className="cursor-pointer hover:underline">View Details</Link>
           </div>
         </div>
       </div>
