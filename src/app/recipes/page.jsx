@@ -3,6 +3,10 @@ import RecipeCard from "./components/recipeCard/RecipeCard"
 
 const { poppins } = require("../layout")
 
+export const metadata = {
+  title: "Recipes"
+}
+
 const getRecipes = async () => {
   const response = await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random')
 

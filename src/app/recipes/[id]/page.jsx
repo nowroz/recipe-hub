@@ -3,12 +3,26 @@ import Image from "next/image"
 import Link from "next/link"
 import { FaLongArrowAltLeft } from "react-icons/fa"
 
+
 const getRecipe = async (id) => {
   const response = await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`)
 
   const result = await response.json()
 
   return result.details
+}
+
+
+export const generateMetadata = async ({ params }) => {
+  const { id } = await params
+
+  const recipe = await getRecipe(id)
+
+  const { title } = recipe
+
+  return {
+    title
+  }
 }
 
 const RecipeDetails = async ({ params }) => {
