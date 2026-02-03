@@ -1,5 +1,6 @@
 import CartItems from "./components/cartItems/CartItems"
 import RecipeCard from "./components/recipeCard/RecipeCard"
+import SearchRecipesInput from "./components/searchRecipesInput/SearchRecipesInput"
 
 const { poppins } = require("../layout")
 
@@ -7,16 +8,18 @@ export const metadata = {
   title: "Recipes"
 }
 
-const getRecipes = async () => {
-  const response = await fetch('https://taxi-kitchen-api.vercel.app/api/v1/foods/random')
+const getRecipes = async (searchText) => {
+  const response = await fetch(`https://taxi-kitchen-api.vercel.app/api/v1/foods/random?search=${searchText}`)
 
   const result = await response.json()
 
   return result.foods
 }
 
-const Recipes = async () => {
-  const recipes = await getRecipes()
+const Recipes = async ({ searchParams }) => {
+  const { search = "" } = await searchParams
+
+  const recipes = await getRecipes(search)
 
   return (
     <>
@@ -26,6 +29,12 @@ const Recipes = async () => {
           <br />
           <span className="text-amber-200">Mouthwatering</span> Recipes!
         </h2>
+      </section>
+      <section className="custom-container my-20">
+        <SearchRecipesInput></SearchRecipesInput>
+      </section>
+      <section className="custom-container my-20">
+        <h4 className="text-3xl font-bold">Recipes Found: <span className="text-amber-200">{recipes.length}</span></h4>
       </section>
       <section className="custom-container my-20 grid grid-cols-13 gap-4">
         <div className="col-span-10 grid grid-cols-3 justify-items-center gap-y-10">
