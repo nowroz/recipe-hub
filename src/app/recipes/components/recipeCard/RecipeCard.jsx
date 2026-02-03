@@ -1,4 +1,5 @@
 import Image from "next/image"
+import AddToCartButton from "./components/addToCartButton/AddToCartButton"
 
 const RecipeCard = ({ recipe }) => {
   const {
@@ -9,8 +10,8 @@ const RecipeCard = ({ recipe }) => {
   } = recipe
 
   return (
-    <div className="w-72 flex flex-col">
-      <Image width={288} height={288} src={foodImg} alt="" className="w-72 h-auto"></Image>
+    <div className="w-[300] flex flex-col">
+      <Image width={300} height={300} src={foodImg} alt="" className="w-75 h-auto"></Image>
       <div className="flex-1 bg-white p-4 flex flex-col justify-between gap-5">
         <h4 className="text-3xl font-bold text-black">{title}</h4>
         <div>
@@ -18,8 +19,8 @@ const RecipeCard = ({ recipe }) => {
           <h3 className="text-4xl font-bold text-black mb-6">&#2547;{price}</h3>
 
           <div className="flex items-center justify-between text-black">
-            <button className="cursor-pointer">Add to Cart</button>
-            <button className="cursor-pointer">View Details</button>
+            <AddToCartButton recipe={recipe}></AddToCartButton>
+            <button className="cursor-pointer hover:underline">View Details</button>
           </div>
         </div>
       </div>

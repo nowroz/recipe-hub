@@ -1,6 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
+import CartItemsProvider from "./providers/CartItemsProvider";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -28,9 +29,11 @@ export default function RootLayout({ children }) {
         <header>
           <Navbar></Navbar>
         </header>
-        <main>
-          {children}
-        </main>
+        <CartItemsProvider>
+          <main>
+            {children}
+          </main>
+        </CartItemsProvider>
       </body>
     </html>
   );

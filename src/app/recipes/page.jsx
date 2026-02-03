@@ -1,3 +1,4 @@
+import CartItems from "./components/cartItems/CartItems"
 import RecipeCard from "./components/recipeCard/RecipeCard"
 
 const { poppins } = require("../layout")
@@ -30,7 +31,8 @@ const Recipes = async () => {
             ))
           }
         </div>
-        <div className="col-span-3 border">
+        <div className="col-span-3">
+          <CartItems></CartItems>
         </div>
       </section>
     </>
