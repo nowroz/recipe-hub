@@ -3,8 +3,16 @@ import { poppins } from "../layout"
 import FeedbackCard from "./components/feedbackCard/FeedbackCard"
 import Link from "next/link"
 
+export const metadata = {
+  title: "Feedback"
+}
+
+
+
 const getFeedback = async () => {
-  const response = await fetch(`http://localhost:3000/api/feedback`)
+  const response = await fetch(`http://localhost:3000/api/feedback`, {
+    next: { revalidate: 60 }
+  })
   const result = await response.json()
 
   return result

@@ -1,6 +1,10 @@
 import { poppins } from "@/app/layout"
 import FeedbackForm from "./components/feedbackForm/FeedbackForm"
 
+export const metadata = {
+  title: "Add Feedback"
+}
+
 const AddFeedback = () => {
 
   return (

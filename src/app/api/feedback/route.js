@@ -1,4 +1,5 @@
 import { connect } from "@/app/lib/dbConnect"
+import { revalidatePath } from "next/cache"
 
 const feedbackCollection = connect("feedbackCollection")
 
@@ -28,6 +29,10 @@ export const POST = async (request) => {
   }
 
   const result = await feedbackCollection.insertOne(newFeedback)
+
+  if (result.insertedId) {
+    revalidatePath("/feedback")
+  }
 
   return Response.json(result)
 }
