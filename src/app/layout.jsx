@@ -2,6 +2,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
 import CartItemsProvider from "./providers/CartItemsProvider";
+import { ToastContainer } from "react-toastify";
 
 export const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
         <CartItemsProvider>
           <main>
             {children}
+            <ToastContainer newestOnTop></ToastContainer>
           </main>
         </CartItemsProvider>
       </body>
