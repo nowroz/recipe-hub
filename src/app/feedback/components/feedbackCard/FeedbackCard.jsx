@@ -13,7 +13,7 @@ const FeedbackCard = ({ feedback }) => {
   } = feedback
 
   const handleDeleteFeedback = async (id) => {
-    const response = await fetch(`http://localhost:3000/api/feedback/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/feedback/${id}`, {
       method: "DELETE"
     })
 

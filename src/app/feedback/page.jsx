@@ -10,7 +10,7 @@ export const metadata = {
 
 
 const getFeedback = async () => {
-  const response = await fetch(`http://localhost:3000/api/feedback`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/feedback`, {
     next: { revalidate: 60 }
   })
   const result = await response.json()

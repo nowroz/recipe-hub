@@ -13,7 +13,7 @@ const FeedbackForm = () => {
 
     const message = form.feedbackMessage.value.trim()
 
-    const response = await fetch(`http://localhost:3000/api/feedback`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_BASE_URL}/feedback`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
