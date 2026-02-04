@@ -34,7 +34,7 @@ const FeedbackForm = () => {
   return (
     <div className="flex justify-center">
       <form onSubmit={handleAddFeedback} className="flex flex-col items-center gap-4">
-        <textarea rows={4} cols={50} name="feedbackMessage" id="feedbackMessage" className="border rounded-2xl p-4 focus:outline-none focus:border-amber-200"></textarea>
+        <textarea rows={4} cols={50} name="feedbackMessage" id="feedbackMessage" required className="border rounded-2xl p-4 focus:outline-none focus:border-amber-200"></textarea>
 
         <button className="bg-amber-200 px-3 py-1 rounded-xl text-black font-bold flex items-center gap-2 cursor-pointer active:scale-[99%]">
           Post
