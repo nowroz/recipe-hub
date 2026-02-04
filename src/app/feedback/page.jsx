@@ -3,6 +3,8 @@ import { poppins } from "../layout"
 import FeedbackCard from "./components/feedbackCard/FeedbackCard"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic"
+
 export const metadata = {
   title: "Feedback"
 }
